@@ -1,0 +1,7 @@
+<div>
+  <app-release-cover
+    *ngFor="let release of releases"
+    [release]="release.metadata"
+    [publisher]="release.publisherAccount.displayName"
+  ></app-release-cover>
+</div>
