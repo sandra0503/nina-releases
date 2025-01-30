@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+.arimo-400 {
+  font-family: "Arimo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+.btn-primary {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  pointer-events: all;
+
+  &:hover {
+    background-color: #126a75;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.inline-link {
+  margin: 4px;
+  padding: 8px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #00bcd4;
+  text-decoration: none;
+  padding: 0 4px;
+  border-bottom: 2px solid #00bcd4;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.inline-link:hover {
+  color: #126a75;
+  border-color: #126a75;
+}
+
+.inline-link:active {
+  transform: scale(0.98);
+}
