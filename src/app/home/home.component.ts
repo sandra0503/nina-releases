@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   selectedSlug = signal("");
 
   offset = 0;
-  limit = 6;
+  limit = 12;
 
   get releaseUrl(): string | null {
     const slug = this.selectedSlug();

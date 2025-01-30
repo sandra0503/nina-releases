@@ -15,7 +15,15 @@
       </div>
     </div>
   </div>
-  <div id="waveform" class="waveform-container">
+  <div class="player-container">
+    <button
+      (click)="handleClickNext()"
+      class="btn-primary"
+      [style]="{ marginTop: '16px' }"
+    >
+      Refresh
+    </button>
+    <div id="waveform"></div>
     <div class="actions">
       <a
         *ngIf="playingSlug().length > 0"
@@ -32,13 +40,14 @@
       >
         To the release
       </a>
+      <a
+      *ngIf="!releaseUrl"
+      href="https://www.ninaprotocol.com/"
+      target="__blank"
+      class="inline-link"
+    >
+    https://www.ninaprotocol.com/
+    </a>
     </div>
   </div>
-  <button
-    (click)="handleClickNext()"
-    class="btn-primary"
-    [style]="{ marginTop: '16px' }"
-  >
-    Load more
-  </button>
 </div>
