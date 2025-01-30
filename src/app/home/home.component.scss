@@ -8,8 +8,9 @@
   pointer-events: none;
 
   @media only screen and (max-width: 600px) {
-    height: calc(100vh - 260px);
-    padding-bottom: 260px;
+    height: calc(100vh - 165px);
+    padding-top: 165px;
+    padding-bottom: 0;
   }
 }
 
@@ -75,16 +76,19 @@
   }
 }
 
-.waveform-container {
+.player-container {
   pointer-events: all;
   position: absolute;
   width: 100%;
   max-width: 800px;
-  bottom: 0;
+  bottom: 20px;
   padding: 0;
 
   @media only screen and (max-width: 600px) {
-    bottom: 85px;
+    top: 0;
+    bottom: auto;
+    padding: 8px;
+    width: calc(100% - 16px);
   }
 
   .actions {
@@ -95,4 +99,8 @@
     display: flex;
     gap: 8px;
   }
+}
+
+#waveform {
+  min-height: 100px;
 }
