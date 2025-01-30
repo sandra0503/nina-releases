@@ -22,10 +22,10 @@
         class="inline-link"
         (click)="stopPlayback()"
       >
-        Stop
+        Pause
       </a>
       <a
-        *ngIf="selectedSlug().length > 0"
+        *ngIf="releaseUrl"
         [href]="releaseUrl"
         target="__blank"
         class="inline-link"

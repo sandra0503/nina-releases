@@ -28,9 +28,11 @@ export class HomeComponent implements OnInit {
   offset = 0;
   limit = 6;
 
-  get releaseUrl(): string {
-    const slug = this.playingSlug();
-    return slug ? `https://www.ninaprotocol.com/releases/${slug}` : "";
+  get releaseUrl(): string | null {
+    const slug = this.selectedSlug();
+    return slug.length > 0
+      ? `https://www.ninaprotocol.com/releases/${slug}`
+      : null;
   }
 
   async ngOnInit(): Promise<void> {

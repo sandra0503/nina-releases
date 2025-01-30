@@ -8,8 +8,8 @@
   pointer-events: none;
 
   @media only screen and (max-width: 600px) {
-    height: calc(100vh - 275px);
-    padding-bottom: 275px;
+    height: calc(100vh - 260px);
+    padding-bottom: 260px;
   }
 }
 
@@ -84,13 +84,13 @@
   padding: 0;
 
   @media only screen and (max-width: 600px) {
-    bottom: 100px;
+    bottom: 85px;
   }
 
   .actions {
     position: absolute;
     z-index: 10;
-    bottom: -20px;
+    bottom: 0px;
     right: 0;
     display: flex;
     gap: 8px;
