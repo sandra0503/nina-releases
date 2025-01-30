@@ -1,7 +1,44 @@
-<div>
-  <app-release-cover
-    *ngFor="let release of releases"
-    [release]="release.metadata"
-    [publisher]="release.publisherAccount.displayName"
-  ></app-release-cover>
+<div class="home">
+  <div class="grid">
+    <div *ngFor="let release of releases()">
+      <app-release-cover
+        [release]="release.metadata"
+        [publisher]="release.publisherAccount.displayName"
+        [isActive]="release.slug === selectedSlug()"
+      ></app-release-cover>
+      <div class="play-button-wrapper">
+        <button
+          class="play-button"
+          [ngClass]="{ paused: release.slug === playingSlug() }"
+          (click)="playOrPause(release)"
+        ></button>
+      </div>
+    </div>
+  </div>
+  <div id="waveform" class="waveform-container">
+    <div class="actions">
+      <a
+        *ngIf="playingSlug().length > 0"
+        class="inline-link"
+        (click)="stopPlayback()"
+      >
+        Stop
+      </a>
+      <a
+        *ngIf="selectedSlug().length > 0"
+        [href]="releaseUrl"
+        target="__blank"
+        class="inline-link"
+      >
+        To the release
+      </a>
+    </div>
+  </div>
+  <button
+    (click)="handleClickNext()"
+    class="btn-primary"
+    [style]="{ marginTop: '16px' }"
+  >
+    Load more
+  </button>
 </div>

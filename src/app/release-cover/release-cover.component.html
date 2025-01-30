@@ -1,5 +1,11 @@
-<div class="cover">
-  {{ release.name }}
-  {{ publisher }}
-  <img [src]="release.image" />
+<div class="cover" [ngClass]="{ active: isActive }">
+  <div class="cover-image">
+    <img [src]="release.image" />
+  </div>
+  <div class="cover-details arimo-400">
+    >
+    <div class="title">{{ release.name }}</div>
+    <div class="publisher">{{ publisher }}</div>
+    <div class="description">{{ release.description }}</div>
+  </div>
 </div>
