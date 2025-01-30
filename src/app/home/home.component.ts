@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit {
       waveColor: "#999999",
       progressColor: "#eb4034",
       barHeight: 0.3,
+      height: 100,
     });
   }
 
