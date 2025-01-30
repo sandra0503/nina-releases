@@ -5,6 +5,12 @@
   height: calc(100vh - 180px);
   padding-bottom: 180px;
   position: relative;
+  pointer-events: none;
+
+  @media only screen and (max-width: 600px) {
+    height: calc(100vh - 300px);
+    padding-bottom: 300px;
+  }
 }
 
 .grid {
@@ -14,6 +20,7 @@
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   grid-auto-rows: 1fr;
   gap: 24px;
+  pointer-events: all;
 
   @media only screen and (max-width: 600px) {
     gap: 16px;
@@ -69,11 +76,16 @@
 }
 
 .waveform-container {
+  pointer-events: all;
   position: absolute;
   width: 100%;
   max-width: 800px;
   bottom: 0;
   padding: 0;
+
+  @media only screen and (max-width: 600px) {
+    bottom: 120px;
+  }
 
   .actions {
     position: absolute;
