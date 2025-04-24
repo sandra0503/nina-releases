@@ -1,63 +1,58 @@
-# MyDrops
+# 🎧 WIP Nina releases
 
-## Acknowledgments
+> **An aesthetic and intuitive web app to explore music releases on the decentralized [Nina Protocol](https://nina-protocol.com)**
 
-This project connects to the API from [Nina Protocol](https://github.com/nina-protocol), which is licensed under the MIT License.
+## 🌟 Overview
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+**Nina Releases** is a modern, Angular-powered web application designed to showcase a visually appealing user interface for discovering music releases. It connects to the open-source **Nina Protocol**, a decentralized publishing protocol built on Solana, and transforms release data into an accessible, beautiful browsing experience.
 
-## Development server
+This project demonstrates front-end development best practices, a thoughtful user experience, and an understanding of decentralized web technologies.
 
-To start a local development server, run:
+## ✨ Features
+
+- 🎨 **Clean and responsive UI** built with Angular 19  
+- 🔍 **Music release browser** powered by Nina's open API  
+- 🌐 **Integration with decentralized protocols (Nina, Solana)**
+
+## 🛠️ Tech Stack
+
+- **Framework:** Angular 19.1.4  
+- **Language:** TypeScript  
+- **Styling:** SCSS / TailwindCSS (if used)  
+- **APIs:** Nina Protocol  
+- **Testing:** Karma (unit tests)
+- **Build Tools:** Angular CLI
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js and Angular CLI installed:
+
+```bash
+npm install -g @angular/cli
+```
+
+### Installation
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/sandra0503/nina-releases.git
+cd nina-releases
+npm install
+```
+
+###  Development Server
+Start the development server:
 
 ```bash
 ng serve
 ```
+Navigate to http://localhost:4200/. The app will reload automatically if you change any source files.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🙌 Acknowledgments
+Thanks to the [Nina Protocol](https://github.com/nina-protocol) team for their open-source contributions to decentralized music publishing.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is open source under the MIT License.
