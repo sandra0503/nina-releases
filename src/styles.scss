@@ -3,7 +3,7 @@
   --contentMaxWidth: 800px;
   --headerHeight: 90px;
   --headerHeightMobile: 130px;
-  --footerHeight: 80px;
+  --footerHeight: 90px;
 }
 
 .arimo-400 {
@@ -26,11 +26,19 @@ body {
   border: none;
   border-radius: 20px;
   padding: 8px;
+  cursor: pointer;
 
   &:hover {
     background-color: #126a75;
     transition: all 0.3s ease-in-out;
   }
+}
+
+.btn-icon {
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  border: none;
 }
 
 .inline-link {

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { QueryService } from "../services/query.service";
 
 @Component({
@@ -8,10 +8,18 @@ import { QueryService } from "../services/query.service";
   styleUrl: "./header.component.scss",
 })
 export class HeaderComponent {
-  constructor(private queryService: QueryService) {}
+  private queryService = inject(QueryService);
 
   onSearch(event: Event, query: string) {
     event.preventDefault();
-    this.queryService.setSearchQuery(query);
+    this.queryService.setSearchTerm(query);
+  }
+
+  goBack() {
+    this.queryService.goBack();
+  }
+
+  goForward() {
+    this.queryService.goForward();
   }
 }

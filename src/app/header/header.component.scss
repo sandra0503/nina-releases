@@ -24,8 +24,23 @@
   }
 }
 
-.search {
+.navigation {
   display: flex;
   flex-direction: row;
+}
+
+.search {
+  display: flex;
   gap: 10px;
+}
+
+.back {
+  margin-left: 10px;
+}
+
+.back img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }

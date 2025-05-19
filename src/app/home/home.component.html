@@ -1,47 +1,24 @@
 <div class="home" *ngIf="data$ | async as data">
   <app-loader class="loader" *ngIf="data.loading"></app-loader>
-  <div class="grid">
+  <div class="grid" *ngIf="data.releases.length > 0">
     <div *ngFor="let release of data.releases">
       <app-release-cover
         [release]="release.metadata"
         [publisher]="release.publisherAccount.displayName"
-        [isActive]="release.slug === selectedSlug()"
+        [isActive]="release.slug === activeReleaseSlug()"
       ></app-release-cover>
       <div class="play-button-wrapper">
         <button
           class="play-button"
-          [ngClass]="{ paused: release.slug === playingSlug() }"
+          [ngClass]="{
+            pause: release.slug === activeReleaseSlug() && isPlaying()
+          }"
           (click)="playOrPause(release)"
         ></button>
       </div>
     </div>
   </div>
   <div class="player-container">
-    <div id="waveform"></div>
-    <div class="actions">
-      <a
-        *ngIf="playingSlug().length > 0"
-        class="inline-link"
-        (click)="stopPlayback()"
-      >
-        Pause
-      </a>
-      <a
-        *ngIf="releaseUrl"
-        [href]="releaseUrl"
-        target="__blank"
-        class="inline-link"
-      >
-        Full release
-      </a>
-      <a
-        *ngIf="!releaseUrl"
-        href="https://www.ninaprotocol.com/"
-        target="__blank"
-        class="inline-link"
-      >
-        https://www.ninaprotocol.com/
-      </a>
-    </div>
+    <app-player></app-player>
   </div>
 </div>

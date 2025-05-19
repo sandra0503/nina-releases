@@ -60,7 +60,7 @@
   border-style: solid;
   border-width: 24px 0 24px 28px;
 
-  &.paused {
+  &.pause {
     height: 40px;
     border-style: double;
     border-width: 0px 0 0px 28px;
@@ -79,24 +79,10 @@
   width: 100%;
   max-width: 800px;
   min-height: var(--footerHeight);
-  padding: 0;
   background: #ffffff;
 
   @media only screen and (max-width: 600px) {
     padding: 8px;
     width: calc(100% - 16px);
   }
-
-  .actions {
-    position: absolute;
-    z-index: 10;
-    bottom: 10px;
-    right: 0;
-    display: flex;
-    gap: 8px;
-  }
-}
-
-#waveform {
-  padding-bottom: 40px;
 }
