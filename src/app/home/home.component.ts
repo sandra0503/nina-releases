@@ -1,52 +1,70 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  signal,
-  WritableSignal,
-} from "@angular/core";
-import { NinaService } from "../nina.service";
+import { Component, inject, OnInit, signal } from "@angular/core";
+import { NinaService } from "../services/nina.service";
 import { ReleaseCoverComponent } from "../release-cover/release-cover.component";
 import { Release } from "../release";
 import { CommonModule } from "@angular/common";
+import { QueryService } from "../services/query.service";
 import WaveSurfer from "wavesurfer.js";
+import {
+  catchError,
+  distinctUntilChanged,
+  filter,
+  map,
+  Observable,
+  of,
+  startWith,
+  switchMap,
+} from "rxjs";
+import { LoaderComponent } from "../loader/loader.component";
+
+const DEFAULT_QUERY = "rnb";
 
 @Component({
   selector: "app-home",
-  imports: [CommonModule, ReleaseCoverComponent],
+  imports: [CommonModule, ReleaseCoverComponent, LoaderComponent],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
 })
 export class HomeComponent implements OnInit {
   ninaService: NinaService = inject(NinaService);
   wave: WaveSurfer | null = null;
+  data$: Observable<{ loading: boolean; releases: Release[] }>;
 
-  releases: WritableSignal<Release[]> = signal([]);
   playingSlug = signal("");
   selectedSlug = signal("");
-
   offset = 0;
-  limit = 12;
+  limit = 9;
 
   get releaseUrl(): string | null {
-    const slug = this.selectedSlug();
-    return slug.length > 0
-      ? `https://www.ninaprotocol.com/releases/${slug}`
-      : null;
+    return this.ninaService.getReleaseUrlBySlug(this.selectedSlug());
+  }
+
+  constructor(private queryService: QueryService) {
+    this.data$ = this.queryService.searchQuery$.pipe(
+      distinctUntilChanged(),
+      filter((query) => query?.length > 0),
+      switchMap((query) =>
+        this.ninaService.searchByTag(this.limit, query, 0).pipe(
+          map((releases) => ({ loading: false, releases })),
+          catchError(() => {
+            return of({
+              loading: false,
+              releases: [],
+            });
+          }),
+          startWith({ loading: true, releases: [] })
+        )
+      )
+    );
   }
 
   async ngOnInit(): Promise<void> {
-    this.getReleases(0);
+    this.queryService.setSearchQuery(DEFAULT_QUERY);
   }
 
-  async getReleases(offset: number) {
+  getReleases(offset: number, query: string): Observable<Release[]> {
     this.offset = offset;
-    const releases = await this.ninaService.searchByTag(
-      this.limit,
-      "techno",
-      this.offset
-    );
-    this.releases.set(releases);
+    return this.ninaService.searchByTag(this.limit, query, this.offset);
   }
 
   playOrPause(release: Release) {
@@ -68,10 +86,10 @@ export class HomeComponent implements OnInit {
   createWave(): WaveSurfer {
     return WaveSurfer.create({
       container: "#waveform",
-      waveColor: "#999999",
-      progressColor: "#eb4034",
-      barHeight: 0.3,
-      height: 100,
+      waveColor: "#e3e3e3",
+      progressColor: "#ff5757",
+      barHeight: 0.7,
+      height: 50,
     });
   }
 
@@ -81,6 +99,6 @@ export class HomeComponent implements OnInit {
   }
 
   handleClickNext() {
-    this.getReleases(this.offset + this.limit);
+    this.getReleases(this.offset + this.limit, "");
   }
 }

@@ -1,6 +1,7 @@
-<div class="home">
+<div class="home" *ngIf="data$ | async as data">
+  <app-loader class="loader" *ngIf="data.loading"></app-loader>
   <div class="grid">
-    <div *ngFor="let release of releases()">
+    <div *ngFor="let release of data.releases">
       <app-release-cover
         [release]="release.metadata"
         [publisher]="release.publisherAccount.displayName"
@@ -16,13 +17,6 @@
     </div>
   </div>
   <div class="player-container">
-    <button
-      (click)="handleClickNext()"
-      class="btn-primary"
-      [style]="{ marginTop: '16px' }"
-    >
-      Refresh
-    </button>
     <div id="waveform"></div>
     <div class="actions">
       <a
@@ -38,16 +32,16 @@
         target="__blank"
         class="inline-link"
       >
-        To the release
+        Full release
       </a>
       <a
-      *ngIf="!releaseUrl"
-      href="https://www.ninaprotocol.com/"
-      target="__blank"
-      class="inline-link"
-    >
-    https://www.ninaprotocol.com/
-    </a>
+        *ngIf="!releaseUrl"
+        href="https://www.ninaprotocol.com/"
+        target="__blank"
+        class="inline-link"
+      >
+        https://www.ninaprotocol.com/
+      </a>
     </div>
   </div>
 </div>

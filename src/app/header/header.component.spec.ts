@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ReleaseCoverComponent } from "./release-cover.component";
+import { HeaderComponent } from "./header.component";
 import { HttpClient, HttpHandler } from "@angular/common/http";
 
-describe("ReleaseCoverComponent", () => {
-  let component: ReleaseCoverComponent;
-  let fixture: ComponentFixture<ReleaseCoverComponent>;
+describe("HeaderComponent", () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReleaseCoverComponent],
+      imports: [HeaderComponent],
       providers: [HttpClient, HttpHandler],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ReleaseCoverComponent);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
