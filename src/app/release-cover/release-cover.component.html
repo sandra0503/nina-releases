@@ -1,4 +1,4 @@
-<div class="cover" [ngClass]="{ active: isActive }">
+<div class="cover" [ngClass]="{ active: isActive }" *ngIf="release">
   <div class="cover-image">
     <img [src]="release.image" />
   </div>

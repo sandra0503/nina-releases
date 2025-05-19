@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --contentMaxWidth: 800px;
+  --headerHeight: 90px;
+  --headerHeightMobile: 130px;
+  --footerHeight: 90px;
+}
+
 .arimo-400 {
   font-family: "Arimo", serif;
   font-optical-sizing: auto;
@@ -19,12 +26,19 @@ body {
   border: none;
   border-radius: 20px;
   padding: 8px;
-  pointer-events: all;
+  cursor: pointer;
 
   &:hover {
     background-color: #126a75;
     transition: all 0.3s ease-in-out;
   }
+}
+
+.btn-icon {
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  border: none;
 }
 
 .inline-link {
@@ -48,4 +62,22 @@ body {
 
 .inline-link:active {
   transform: scale(0.98);
+}
+
+input {
+  color: #333333;
+  padding: 8px;
+  border: 2px solid #333333;
+  transition: border 50ms;
+  font-size: 16px;
+}
+
+input:focus-visible {
+  outline: none;
+  border: 2px solid #00bcd4;
+}
+
+input::placeholder {
+  opacity: 0.4;
+  color: #333333;
 }

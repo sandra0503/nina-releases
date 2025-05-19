@@ -1,0 +1,28 @@
+<div>
+  <div id="waveform"></div>
+  <div class="actions">
+    <a
+      *ngIf="activeRelease() && isPlaying()"
+      class="inline-link"
+      (click)="pausePlayback()"
+    >
+      Pause
+    </a>
+    <a
+      *ngIf="releaseUrl"
+      [href]="releaseUrl"
+      target="__blank"
+      class="inline-link"
+    >
+      Full release
+    </a>
+    <a
+      *ngIf="!releaseUrl"
+      href="https://www.ninaprotocol.com/"
+      target="__blank"
+      class="inline-link"
+    >
+      https://www.ninaprotocol.com/
+    </a>
+  </div>
+</div>
