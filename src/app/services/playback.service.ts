@@ -14,7 +14,7 @@ const WAVEFORM_CONFIG = {
 
 @Injectable({ providedIn: "root" })
 export class PlaybackService {
-  private current = new BehaviorSubject<{
+  public current = new BehaviorSubject<{
     release: Release | null;
     isPlaying: boolean;
   }>({

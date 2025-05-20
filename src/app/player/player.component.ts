@@ -36,7 +36,7 @@ export class PlayerComponent {
     return slug ? this.ninaService.getReleaseUrlBySlug(slug) : null;
   }
 
-  pausePlayback(): void {
+  playOrPause(): void {
     this.playbackService.playOrPause();
   }
 }

@@ -2,9 +2,18 @@
   <div id="waveform"></div>
   <div class="actions">
     <a
+      *ngIf="activeRelease() && !isPlaying()"
+      class="inline-link"
+      (click)="playOrPause()"
+      data-name="PlayAction"
+    >
+      Play
+    </a>
+    <a
       *ngIf="activeRelease() && isPlaying()"
       class="inline-link"
-      (click)="pausePlayback()"
+      (click)="playOrPause()"
+      data-name="PauseAction"
     >
       Pause
     </a>
