@@ -1,10 +1,14 @@
-# MyDrops
+# Nina Releases
 
 ## Acknowledgments
 
 This project connects to the API from [Nina Protocol](https://github.com/nina-protocol), which is licensed under the MIT License.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+
+## Preview
+
+A live preview of the project can be found [here](https://sandra0503.github.io/nina-releases/).
 
 ## Development server
 
